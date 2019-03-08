@@ -23,7 +23,7 @@ blocks:
           - sleep 10
           - echo "B"
   - name: "C"
-    dependencies: ["A", "B"]
+    dependencies: ["A"]
     task:
       jobs:
       - name: "C"
@@ -47,7 +47,7 @@ blocks:
           - sleep 10
           - echo "E"
   - name: "F"
-    dependencies: ["D", "B"]
+    dependencies: ["D"]
     task:
       jobs:
       - name: "E"
@@ -55,7 +55,7 @@ blocks:
           - sleep 10
           - echo "E"
   - name: "G"
-    dependencies: ["D", "B"]
+    dependencies: ["B"]
     task:
       jobs:
       - name: "E"
@@ -63,7 +63,7 @@ blocks:
           - sleep 10
           - echo "E"
   - name: "H"
-    dependencies: ["D", "B"]
+    dependencies: ["B"]
     task:
       jobs:
       - name: "E"
