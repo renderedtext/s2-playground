@@ -54,7 +54,27 @@ blocks:
     dependencies: ["D", "A"]
     task:
       jobs:
-      - name: "E"
+      - name: "E 1/6"
+        commands:
+          - sleep 10
+          - echo "E"
+      - name: "E 2/6"
+        commands:
+          - sleep 10
+          - echo "E"
+      - name: "E 3/6"
+        commands:
+          - sleep 10
+          - echo "E"
+      - name: "E 4/6"
+        commands:
+          - sleep 10
+          - echo "E"
+      - name: "E 5/6"
+        commands:
+          - sleep 10
+          - echo "E"
+      - name: "E 6/6"
         commands:
           - sleep 10
           - echo "E"
