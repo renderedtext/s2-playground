@@ -6,35 +6,31 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: "A"
+  - name: "1"
     dependencies: []
     task:
       jobs:
-      - name: "A"
+      - name: "job"
         commands:
           - sleep 10
-          - echo "A"
-  - name: "B"
+  - name: "2"
     dependencies: []
     task:
       jobs:
-      - name: "B"
+      - name: "job"
         commands:
           - sleep 10
-          - echo "B"
-  - name: "C"
+  - name: "3"
     dependencies: []
     task:
       jobs:
-      - name: "C"
+      - name: "job"
         commands:
           - sleep 10
-          - echo "C"
-  - name: "E"
+  - name: "4"
     dependencies: []
     task:
       jobs:
-      - name: "E"
+      - name: "job"
         commands:
           - sleep 10
-          - echo "E"
