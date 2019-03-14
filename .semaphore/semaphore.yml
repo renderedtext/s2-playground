@@ -14,21 +14,49 @@ blocks:
         commands:
           - sleep 10
   - name: "2"
-    dependencies: []
+    dependencies: ["1"]
     task:
       jobs:
       - name: "job"
         commands:
           - sleep 10
   - name: "3"
-    dependencies: []
+    dependencies: ["2"]
     task:
       jobs:
       - name: "job"
         commands:
           - sleep 10
   - name: "4"
-    dependencies: []
+    dependencies: ["3"]
+    task:
+      jobs:
+      - name: "job"
+        commands:
+          - sleep 10
+  - name: "5"
+    dependencies: ["3"]
+    task:
+      jobs:
+      - name: "job"
+        commands:
+          - sleep 10
+  - name: "6"
+    dependencies: ["3"]
+    task:
+      jobs:
+      - name: "job"
+        commands:
+          - sleep 10
+  - name: "7"
+    dependencies: ["3"]
+    task:
+      jobs:
+      - name: "job"
+        commands:
+          - sleep 10
+  - name: "8"
+    dependencies: ["3"]
     task:
       jobs:
       - name: "job"
