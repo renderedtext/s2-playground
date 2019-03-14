@@ -24,7 +24,16 @@ blocks:
     dependencies: ["2", "7"]
     task:
       jobs:
-      - name: "job"
+      - name: "job 1"
+        commands:
+          - sleep 10
+      - name: "job 2"
+        commands:
+          - sleep 10
+      - name: "job 3"
+        commands:
+          - sleep 10
+      - name: "job 4"
         commands:
           - sleep 10
   - name: "4"
