@@ -13,28 +13,17 @@ blocks:
       - name: "A"
         commands:
           - sleep 10
-          - echo "A"
   - name: "B"
-    dependencies: []
+    dependencies: ["A"]
     task:
       jobs:
       - name: "B"
         commands:
           - sleep 10
-          - echo "B"
   - name: "C"
-    dependencies: []
+    dependencies: ["B"]
     task:
       jobs:
       - name: "C"
         commands:
           - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: []
-    task:
-      jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
