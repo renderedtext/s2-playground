@@ -1,13 +1,13 @@
 version: "v1.0"
-name: Deploy to Venus
+name: Deploy to Jupiter
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 promotions:
-  - name: Saturn
-    pipeline_file: saturn.yml
+  - name: Uranus
+    pipeline_file: uranus.yml
 
 blocks:
   - name: "A"
@@ -18,25 +18,16 @@ blocks:
         commands:
           - sleep 10
           - echo "A"
-  - name: "C"
-    dependencies: ["A"]
-    task:
-      jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
   - name: "B"
-    dependencies: ["A"]
+    dependencies: []
     task:
       jobs:
       - name: "B"
         commands:
           - sleep 10
           - echo "B"
-
-  - name: "D"
-    dependencies: ["A"]
+  - name: "C"
+    dependencies: []
     task:
       jobs:
       - name: "C"
@@ -44,7 +35,7 @@ blocks:
           - sleep 10
           - echo "C"
   - name: "E"
-    dependencies: ["B","C","D"]
+    dependencies: []
     task:
       jobs:
       - name: "E"
