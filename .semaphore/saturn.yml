@@ -6,8 +6,8 @@ agent:
     os_image: ubuntu1804
 
 promotions:
-  - name: Saturn
-    pipeline_file: saturn.yml
+  - name: Mars
+    pipeline_file: mars.yml
 
 blocks:
   - name: "1"
