@@ -1,14 +1,13 @@
 version: "v1.0"
-name: Test
-
+name: Deploy to Saturn
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 promotions:
-  - name: moon
-    pipeline_file: moon.yml
+  - name: Saturn
+    pipeline_file: saturn.yml
 
 blocks:
   - name: "A"

@@ -1,9 +1,13 @@
 version: "v1.0"
-name: Staging
+name: Deploy to Venus
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+
+promotions:
+  - name: Saturn
+    pipeline_file: saturn.yml
 
 blocks:
   - name: "A"
