@@ -7,7 +7,6 @@ agent:
 
 blocks:
   - name: "A"
-    dependencies: []
     task:
       jobs:
       - name: "A"
@@ -15,7 +14,6 @@ blocks:
           - sleep 10
           - echo "A"
   - name: "B"
-    dependencies: []
     task:
       jobs:
       - name: "B"
@@ -23,7 +21,6 @@ blocks:
           - sleep 10
           - echo "B"
   - name: "C"
-    dependencies: []
     task:
       jobs:
       - name: "C"
@@ -31,7 +28,6 @@ blocks:
           - sleep 10
           - echo "C"
   - name: "E"
-    dependencies: []
     task:
       jobs:
       - name: "E"
