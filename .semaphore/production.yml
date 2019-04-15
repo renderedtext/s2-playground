@@ -1,13 +1,9 @@
 version: "v1.0"
-name: Staging
+name: Production
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
-promotions:
-  - name: preproduction
-    pipeline_file: preproduction.yml
 
 blocks:
   - name: "A"
