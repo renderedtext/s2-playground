@@ -14,7 +14,13 @@ blocks:
     dependencies: []
     task:
       jobs:
-      - name: "A"
+      - name: "A1"
+        commands:
+          - sleep 10
+      - name: "A2"
+        commands:
+          - sleep 10
+      - name: "A3"
         commands:
           - sleep 10
   - name: "B"
