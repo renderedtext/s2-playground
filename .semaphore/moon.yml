@@ -53,7 +53,7 @@ blocks:
       - name: "D"
         commands:
           - sleep 10
-          - echo "D"
+          - ls break
   - name: "E"
     dependencies: ["D", "A"]
     task:
