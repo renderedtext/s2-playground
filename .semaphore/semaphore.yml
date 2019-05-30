@@ -1,5 +1,5 @@
 version: "v1.0"
-name: Sequential pipeline
+name: Pipeline with parallel blocks
 agent:
   machine:
     type: e1-standard-2
@@ -15,6 +15,15 @@ blocks:
           - sleep 10
           - echo "Lint completed"
 
+  - name: "Security checks"
+    dependencies: []
+    task:
+      jobs:
+      - name: "Scan"
+        commands:
+          - sleep 10
+          - echo "Scan completed"
+
   - name: "Dockerize"
     dependencies: ["Code quality checks"]
     task:
@@ -24,17 +33,8 @@ blocks:
           - sleep 10
           - echo "Build completed"
 
-  - name: "Smoke tests"
-    dependencies: ["Dockerize"]
-    task:
-      jobs:
-        - name: "Smoke tests"
-          commands:
-            - sleep 1
-            - echo "Smoke tests completed"
-
   - name: "Unit tests"
-    dependencies: ["Smoke tests"]
+    dependencies: ["Dockerize"]
     task:
       jobs:
       - name: "Unit tests 1/3"
@@ -63,19 +63,6 @@ blocks:
           - sleep 10
           - echo "Integration tests 2/3 completed"
 
-  - name: "E2E tests"
-    dependencies: ["Integration tests"]
-    task:
-      jobs:
-      - name: "E2E tests 1/2"
-        commands:
-          - sleep 10
-          - echo "E2E tests 1/2 completed"
-      - name: "E2E tests 2/2"
-        commands:
-          - sleep 10
-          - echo "E2E tests 2/2 completed"
-
   - name: "Long perf tests"
     dependencies: ["Dockerize"]
     task:
@@ -86,7 +73,7 @@ blocks:
           - echo "Perf completed"
 
   - name: "Release candidate"
-    dependencies: ["E2E tests", "Long perf tests"]
+    dependencies: ["Integration tests", "Long perf tests", "Security checks"]
     task:
       jobs:
       - name: "Release"
