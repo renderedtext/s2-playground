@@ -1,40 +1,29 @@
 version: "v1.0"
-name: Complex pipeline without dependencies
+name: Simple dependency graph
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: "A"
+  - name: "Block A"
     dependencies: []
     task:
       jobs:
-      - name: "A"
+      - name: "echo"
         commands:
-          - sleep 10
-          - echo "A"
-  - name: "B"
+          - echo "hi"
+  - name: "Block B"
     dependencies: []
     task:
       jobs:
-      - name: "B"
+      - name: "echo"
         commands:
-          - sleep 10
-          - echo "B"
-  - name: "C"
-    dependencies: []
+          - echo "hi"
+  - name: "Block C"
+    dependencies: ["Block A", "Block B"]
     task:
       jobs:
-      - name: "C"
+      - name: "echo"
         commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: []
-    task:
-      jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
+          - echo "hi"
