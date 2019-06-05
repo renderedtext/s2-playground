@@ -1,40 +1,58 @@
-version: "v1.0"
-name: Complex pipeline without dependencies
+version: v1.0
+name: First pipeline example
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: "A"
-    dependencies: []
+  - name: "Build"
     task:
-      jobs:
-      - name: "A"
+      prologue:
         commands:
-          - sleep 10
-          - echo "A"
-  - name: "B"
-    dependencies: []
-    task:
+          - sudo apt install -y tree
+          - checkout
+          - echo $GOOGLE_APPLICATION_CREDENTIALS
+          - cat /home/semaphore/artifact_credentials.json
+          - wget https://github.com/semaphoreci/artifact/releases/download/v0.1.1/artifact_Linux_x86_64.tar.gz
+          - tar xzf artifact_Linux_x86_64.tar.gz
+          - echo "Hello Artifacts" > README.md
+          - sudo mv artifact /usr/bin/
+
       jobs:
-      - name: "B"
+      - name: Testing with file
         commands:
-          - sleep 10
-          - echo "B"
-  - name: "C"
-    dependencies: []
-    task:
-      jobs:
-      - name: "C"
+          - artifact push job README.md
+          - artifact push workflow README.md
+          - artifact push project -f README.md
+          - cd /tmp
+          - artifact pull job README.md
+          - ls -lah
+          - cat README.md
+          - rm README.md
+          - artifact pull workflow README.md
+          - ls README.md
+          - cat README.md
+          - rm README.md
+          - artifact pull project README.md
+          - ls README.md
+          - cat README.md
+          - rm README.md
+      - name: Testing with dir
         commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: []
-    task:
-      jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
+          - mkdir /tmp/testdir
+          - touch /tmp/testdir/a.txt
+          - touch /tmp/testdir/b.txt
+          - artifact push job /tmp/testdir
+          - artifact push workflow /tmp/testdir
+          - artifact push project -f /tmp/testdir
+          - cd /tmp
+          - rm -r testdir
+          - artifact pull job testdir
+          - tree testdir
+          - rm -r testdir
+          - artifact pull workflow testdir
+          - tree testdir
+          - rm -r testdir
+          - artifact pull project testdir
+          - tree testdir
+          - rm -r testdir
