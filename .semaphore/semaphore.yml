@@ -7,7 +7,7 @@ agent:
     os_image: ubuntu1804
 
 promotions:
-  - name: moon
+  - name: moon 🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙
     pipeline_file: moon.yml
 
 blocks:
