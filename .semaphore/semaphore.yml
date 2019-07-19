@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: Build
           commands:
-            - sleep 600
+            - sleep 6000
   - name: Build for iOS
     dependencies: []
     task:
