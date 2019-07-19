@@ -1,78 +1,77 @@
-version: "v1.0"
+version: v1.0
 name: Cross-platform pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: "Build for Android"
+  - name: Build for Android
     dependencies: []
     task:
       jobs:
-      - name: "Build"
-        commands:
-          - echo "Build completed"
-
-  - name: "Build for iOS"
+        - name: Build
+          commands:
+            - sleep 600
+  - name: Build for iOS
     dependencies: []
     task:
       jobs:
-      - name: "Build"
-        commands:
-          - echo "Build completed"
-
-  - name: "Build for Web"
+        - name: Build
+          commands:
+            - echo "Build completed"
+  - name: Build for Web
     dependencies: []
     task:
       jobs:
-      - name: "Build"
-        commands:
-          - echo "Build completed"
-
-  - name: "Test on Android"
-    dependencies: ["Build for Android"]
+        - name: Build
+          commands:
+            - echo "Build completed"
+  - name: Test on Android
+    dependencies:
+      - Build for Android
     task:
       jobs:
-      - name: "Tests 1/2"
-        commands:
-          - echo "Test completed"
-      - name: "Tests 2/2"
-        commands:
-          - echo "Test completed"
-
-  - name: "Test on iOS"
-    dependencies: ["Build for iOS"]
+        - name: Tests 1/2
+          commands:
+            - echo "Test completed"
+        - name: Tests 2/2
+          commands:
+            - echo "Test completed"
+  - name: Test on iOS
+    dependencies:
+      - Build for iOS
     task:
       jobs:
-      - name: "Tests"
-        commands:
-          - echo "Test completed"
-
-  - name: "Test on Web"
-    dependencies: ["Build for Web"]
+        - name: Tests
+          commands:
+            - echo "Test completed"
+  - name: Test on Web
+    dependencies:
+      - Build for Web
     task:
       jobs:
-      - name: "Tests 1/3"
-        commands:
-          - echo "Test completed"
-      - name: "Tests 2/3"
-        commands:
-          - echo "Test completed"
-      - name: "Tests 3/3"
-        commands:
-          - echo "Test completed"
-
-  - name: "Release"
-    dependencies: ["Test on Android", "Test on iOS", "Test on Web"]
+        - name: Tests 1/3
+          commands:
+            - echo "Test completed"
+        - name: Tests 2/3
+          commands:
+            - echo "Test completed"
+        - name: Tests 3/3
+          commands:
+            - echo "Test completed"
+  - name: Release
+    dependencies:
+      - Test on Android
+      - Test on iOS
+      - Test on Web
     task:
       jobs:
-      - name: "🚀 Google Play"
-        commands:
-          - echo "Release completed"
-      - name: "🚀 AppStore"
-        commands:
-          - echo "Release completed"
-      - name: "🚀 Web"
-        commands:
-          - echo "Rollout completed"
+        - name: "\U0001F680 Google Play"
+          commands:
+            - echo "Release completed"
+        - name: "\U0001F680 AppStore"
+          commands:
+            - echo "Release completed"
+        - name: "\U0001F680 Web"
+          commands:
+            - echo "Rollout completed"
