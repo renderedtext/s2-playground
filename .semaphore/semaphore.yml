@@ -19,4 +19,4 @@ blocks:
           - "false"
       - name: "A2"
         commands:
-          - sleep 10
+          - sleep infinity
