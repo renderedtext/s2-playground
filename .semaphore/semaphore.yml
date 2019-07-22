@@ -4,37 +4,19 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+    
+fail_fast:
+  cancel:
+    when: "branch != 'master'"
 
 blocks:
   - name: "A"
     dependencies: []
     task:
       jobs:
-      - name: "A"
+      - name: "A1"
+        commands:
+          - "false"
+      - name: "A1"
         commands:
           - sleep 10
-          - echo "A"
-  - name: "B"
-    dependencies: []
-    task:
-      jobs:
-      - name: "B"
-        commands:
-          - sleep 10
-          - echo "B"
-  - name: "C"
-    dependencies: []
-    task:
-      jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: []
-    task:
-      jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
