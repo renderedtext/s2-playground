@@ -27,10 +27,10 @@ blocks:
     dependencies: []
     task:
       jobs:
-      - name: "sleep infinity
+      - name: "Sleep infinity 1"
         commands:
           - "sleep infinity"
-          
-      - name: "Sleep inifinity"
+
+      - name: "Sleep infinity 2"
         commands:
           - "sleep infinity"
