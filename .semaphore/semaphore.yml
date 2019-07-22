@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
     
 fail_fast:
-  cancel:
+  stop:
     when: "branch != 'master'"
 
 blocks:
