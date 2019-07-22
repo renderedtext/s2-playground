@@ -17,6 +17,6 @@ blocks:
       - name: "A1"
         commands:
           - "false"
-      - name: "A1"
+      - name: "A2"
         commands:
           - sleep 10
