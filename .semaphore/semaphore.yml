@@ -14,11 +14,23 @@ blocks:
     dependencies: []
     task:
       jobs:
-      - name: "Sleep 10 then Fail"
+      - name: "Sleep 20s => Then Fail"
         commands:
-          - sleep 10
+          - sleep 20
           - "false"
           
       - name: "Sleep inifinity"
         commands:
           - sleep infinity
+          
+  - name: "B"
+    dependencies: []
+    task:
+      jobs:
+      - name: "sleep infinity
+        commands:
+          - "sleep infinity"
+          
+      - name: "Sleep inifinity"
+        commands:
+          - "sleep infinity"
