@@ -31,6 +31,6 @@ blocks:
         - name: Sleep 40s
           commands:
             - sleep 40
-        - name: Sleep 40s
+        - name: Sleep 41s
           commands:
-            - sleep 40
+            - sleep 41
