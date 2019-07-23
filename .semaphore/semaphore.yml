@@ -4,9 +4,11 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+
 fail_fast:
-  stop:
-    when: branch != 'master'
+  cancel:
+    when: branch =~ '.*'
+
 blocks:
   - name: A
     dependencies: []
@@ -16,23 +18,20 @@ blocks:
           commands:
             - sleep 20
             - 'false'
-        - name: Sleep inifinity
-          commands:
-            - sleep infinity
+            
   - name: B
     dependencies: []
     task:
       jobs:
-        - name: Sleep infinity 1
+        - name: Sleep 40s
           commands:
-            - sleep infinity
-        - name: Sleep infinity 2
-          commands:
-            - sleep infinity
+            - sleep 40
+            
   - name: C
     dependencies:
       - B
     task:
       jobs:
         - name: 'Job #1'
-          commands: []
+          commands:
+            - sleep 10
