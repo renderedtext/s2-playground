@@ -12,4 +12,4 @@ blocks:
       jobs:
         - name: Deploy
           commands:
-            - make deploy TARGET=1
+            - echo "deployment"
