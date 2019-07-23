@@ -1,0 +1,15 @@
+version: v1.0
+name: Deployment 1
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+    
+blocks:
+  - name: Deployment
+    dependencies: []
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - make deploy TARGET=1
