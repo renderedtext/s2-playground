@@ -1,36 +1,38 @@
-version: "v1.0"
+version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-    
 fail_fast:
   stop:
-    when: "branch != 'master'"
-
+    when: branch != 'master'
 blocks:
-  - name: "A"
+  - name: A
     dependencies: []
     task:
       jobs:
-      - name: "Sleep 20s => Then Fail"
-        commands:
-          - sleep 20
-          - "false"
-          
-      - name: "Sleep inifinity"
-        commands:
-          - sleep infinity
-          
-  - name: "B"
+        - name: Sleep 20s => Then Fail
+          commands:
+            - sleep 20
+            - 'false'
+        - name: Sleep inifinity
+          commands:
+            - sleep infinity
+  - name: B
     dependencies: []
     task:
       jobs:
-      - name: "Sleep infinity 1"
-        commands:
-          - "sleep infinity"
-
-      - name: "Sleep infinity 2"
-        commands:
-          - "sleep infinity"
+        - name: Sleep infinity 1
+          commands:
+            - sleep infinity
+        - name: Sleep infinity 2
+          commands:
+            - sleep infinity
+  - name: C
+    dependencies:
+      - B
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
