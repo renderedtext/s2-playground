@@ -14,24 +14,23 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: Sleep 20s => Then Fail
+        - name: Sleep 10s => Then Fail
           commands:
-            - sleep 20
+            - sleep 10
             - 'false'
             
   - name: B
     dependencies: []
     task:
+      agent:
+        machine:
+         type: g1-standard-8
+         os_image: ubuntu1804
+        
       jobs:
         - name: Sleep 40s
           commands:
             - sleep 40
-            
-  - name: C
-    dependencies:
-      - B
-    task:
-      jobs:
-        - name: 'Job #1'
+        - name: Sleep 40s
           commands:
-            - sleep 10
+            - sleep 40
