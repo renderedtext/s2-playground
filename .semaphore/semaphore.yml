@@ -2,7 +2,7 @@ version: v1.0
 name: Cross-platform pipeline
 agent:
   machine:
-    type: e1-standard-8
+    type: e1-standard-2
     os_image: ubuntu1804
 blocks:
   - name: Gulp Build
@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: Build
           commands:
-            - make gulp
+            - echo gulp
   - name: Store Artifacts
     dependencies:
       - Gulp Build
@@ -19,4 +19,12 @@ blocks:
       jobs:
         - name: "\U0001F680 Google Play"
           commands:
-            - make upload
+            - echo upload
+
+promotions:
+  - name: deployment 1
+    pipeline_file: deployment1.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - "master"
