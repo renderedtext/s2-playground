@@ -7,9 +7,24 @@ agent:
     
 blocks:
   - name: Deployment
-    dependencies: []
     task:
       jobs:
         - name: Deploy
           commands:
             - echo "deployment"
+
+  - name: Smoke Test
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - echo "testing is the site is up?"
+
+promotions:
+  - name: deployment 2
+    pipeline_file: deployment-2.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - "master"
+          - "cross-platform"
