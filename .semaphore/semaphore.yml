@@ -28,3 +28,4 @@ promotions:
       - result: passed
         branch:
           - "master"
+          - "cross-platform"
