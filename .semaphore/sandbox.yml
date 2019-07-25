@@ -1,0 +1,25 @@
+version: v1.0
+name: Deployment To Sandbox
+
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Deployment
+    dependencies: []
+    task:
+      jobs:
+        - name: Sandbox
+          commands:
+            - echo test
+
+promotions:
+  - name: master
+    pipeline_file: master.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master
+          - cross-platform
