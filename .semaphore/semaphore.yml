@@ -1,24 +1,23 @@
 version: v1.0
-name: Cross-platform pipeline
+name: Test Pipeline
+
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-  containers:
-    - name: main
-      image: 'semaphoreci/ruby:2.6.1'
-      env_vars: []
+
 blocks:
-  - name: Gulp Build
+  - name: Tests
     dependencies: []
     task:
       jobs:
-        - name: Build
+        - name: Tests
           commands:
-            - echo gulp
+            - echo test
+
 promotions:
-  - name: deployment 1
-    pipeline_file: deployment-1.yml
+  - name: sandbox
+    pipeline_file: sandbox.yml
     auto_promote_on:
       - result: passed
         branch:
