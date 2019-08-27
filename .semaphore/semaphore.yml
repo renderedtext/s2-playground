@@ -1,11 +1,9 @@
 version: v1.0
 name: Test Pipeline
-
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
   - name: Tests
     dependencies: []
@@ -14,7 +12,6 @@ blocks:
         - name: Tests
           commands:
             - echo test
-
 promotions:
   - name: sandbox
     pipeline_file: sandbox.yml
