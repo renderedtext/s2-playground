@@ -80,11 +80,3 @@ blocks:
         - name: "Nightwatch \U0001F989"
           commands:
             - echo "Nightwatch done"
-  - name: Release candidate
-    dependencies:
-      - E2E tests
-    task:
-      jobs:
-        - name: Release
-          commands:
-            - echo "Release completed"
