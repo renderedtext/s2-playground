@@ -13,7 +13,8 @@ blocks:
           commands:
             - echo "Lint completed"
   - name: Frontend Lint
-    dependencies: []
+    dependencies:
+      - Backend Lint
     task:
       jobs:
         - name: Lint
@@ -65,18 +66,48 @@ blocks:
         - name: 'Job #3'
           commands:
             - echo "here"
-        - name: 'Job #4'
-          commands:
-            - echo "there"
-        - name: 'Job #5'
-          commands:
-            - echo "everywhere"
-  - name: E2E tests
+  - name: "E2E tests  \U0001F989 \U0001F989"
     dependencies:
       - Backend Unit tests
       - Frontend Unit tests
     task:
       jobs:
-        - name: "Nightwatch \U0001F989"
+        - name: "Nightwatch \U0001F989 \U0001F989"
           commands:
-            - echo "Nightwatch done"
+            - "echo \"Nightwatch done \U0001F989 \U0001F989\""
+      secrets:
+        - name: '123'
+      env_vars:
+        - name: FOO_1
+          value: BAR_1
+      prologue:
+        commands:
+          - "echo \"Nightwatch done \U0001F989 \U0001F989\""
+      epilogue:
+        always:
+          commands:
+            - "echo \"Nightwatch done \U0001F989 \U0001F989\""
+        on_pass:
+          commands:
+            - "echo \"Nightwatch done \U0001F989 \U0001F989\""
+        on_fail:
+          commands:
+            - "echo \"Nightwatch done \U0001F989 \U0001F989\""
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
+        containers:
+          - name: main
+            image: 'semaphoreci/ubuntu:18.04'
+          - name: c2
+            image: ''
+    skip:
+      when: branch != 'monorepo-4'
+  - name: 'Block #8'
+    dependencies:
+      - Frontend Lint
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
