@@ -69,6 +69,11 @@ blocks:
   - name: "E2E tests  \U0001F989 \U0001F989"
     dependencies:
       - Backend Unit tests
+      - 'Block #14'
+      - 'Block #15'
+      - 'Block #17'
+      - 'Block #18'
+      - 'Block #19'
       - Frontend Unit tests
     task:
       jobs:
@@ -111,6 +116,69 @@ blocks:
   - name: 'Block #10'
     dependencies:
       - 'Block #9'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #11'
+    dependencies:
+      - Frontend Unit tests
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #12'
+    dependencies:
+      - 'Block #11'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #13'
+    dependencies:
+      - 'Block #12'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #14'
+    dependencies:
+      - Frontend Lint
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #15'
+    dependencies:
+      - 'Block #14'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #16'
+    dependencies:
+      - 'Block #15'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #17'
+    dependencies:
+      - 'Block #16'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #18'
+    dependencies:
+      - 'Block #17'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #19'
+    dependencies:
+      - 'Block #18'
     task:
       jobs:
         - name: 'Job #1'
