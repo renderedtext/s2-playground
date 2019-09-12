@@ -6,7 +6,6 @@ agent:
     os_image: ubuntu1804
 blocks:
   - name: Backend Lint
-
     dependencies: []
     task:
       jobs:
@@ -21,10 +20,6 @@ blocks:
         - name: Lint
           commands:
             - echo "Lint completed"
-            
-            
-            
-            
   - name: Backend Build
     dependencies:
       - Backend Lint
@@ -46,6 +41,7 @@ blocks:
   - name: Backend Unit tests
     dependencies:
       - Backend Build
+      - 'Block #10'
     task:
       jobs:
         - name: Unit tests 1/3
