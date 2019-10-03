@@ -5,9 +5,52 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: 'Block #1'
+  - name: Backend - Lint
     dependencies: []
     task:
       jobs:
-        - name: 'Job #1'
-          commands: []
+        - name: Lint
+          commands:
+            - make back.lint
+  - name: Backend - Tests
+    dependencies:
+      - Backend - Lint
+    task:
+      jobs:
+        - name: Tests
+          commands:
+            - make back.tests
+          parallelism: 4
+  - name: Frontend - Lint
+    dependencies: []
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - make front.lint
+  - name: Frontend - Tests
+    dependencies:
+      - Frontend - Lint
+    task:
+      jobs:
+        - name: Tests
+          commands:
+            - make front.test
+          parallelism: 4
+  - name: E2E
+    dependencies:
+      - Backend - Tests
+      - Frontend - Tests
+    task:
+      jobs:
+        - name: E2E
+          commands:
+            - make e2e
+  - name: "\U0001F680 Release"
+    dependencies:
+      - E2E
+    task:
+      jobs:
+        - name: Release
+          commands:
+            - make release
