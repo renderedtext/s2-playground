@@ -35,7 +35,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
-            - make front.test
+            - make front.tests
           parallelism: 4
   - name: E2E
     dependencies:
@@ -43,7 +43,7 @@ blocks:
       - Frontend - Tests
     task:
       jobs:
-        - name: E2E
+        - name: e2e
           commands:
             - make e2e
   - name: "\U0001F680 Release"
@@ -51,6 +51,6 @@ blocks:
       - E2E
     task:
       jobs:
-        - name: Release
+        - name: release
           commands:
             - make release
