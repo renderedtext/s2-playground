@@ -5,10 +5,9 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Lint
+  - name: 'Block #1'
     dependencies: []
     task:
       jobs:
-        - name: Rubocop
-          commands:
-            - make lint
+        - name: 'Job #1'
+          commands: []
