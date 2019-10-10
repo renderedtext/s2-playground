@@ -1,73 +1,146 @@
-version: "v1.0"
+version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: "1"
+  - name: '1'
     dependencies: []
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "2"
-    dependencies: ["1", "6"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '2'
+    dependencies:
+      - '1'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "3"
-    dependencies: ["2", "7"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '3'
+    dependencies:
+      - '2'
     task:
       jobs:
-      - name: "job 1"
-        commands:
-          - sleep 10
-      - name: "job 2"
-        commands:
-          - sleep 10
-      - name: "job 3"
-        commands:
-          - sleep 10
-      - name: "job 4"
-        commands:
-          - sleep 10
-  - name: "4"
-    dependencies: ["3", "8"]
+        - name: job 1
+          commands:
+            - sleep 10
+        - name: job 2
+          commands:
+            - sleep 10
+        - name: job 3
+          commands:
+            - sleep 10
+        - name: job 4
+          commands:
+            - sleep 10
+  - name: '4'
+    dependencies:
+      - '3'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "5"
-    dependencies: ["4"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '5'
+    dependencies:
+      - '4'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "6"
-    dependencies: []
+        - name: job
+          commands:
+            - sleep 10
+  - name: 'Block #6'
+    dependencies:
+      - '5'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "7"
-    dependencies: []
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #7'
+    dependencies:
+      - 'Block #6'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "8"
-    dependencies: []
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #8'
+    dependencies:
+      - 'Block #7'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #9'
+    dependencies:
+      - 'Block #8'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #10'
+    dependencies:
+      - 'Block #9'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #11'
+    dependencies:
+      - 'Block #10'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #12'
+    dependencies:
+      - 'Block #11'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #13'
+    dependencies:
+      - 'Block #12'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #14'
+    dependencies:
+      - 'Block #13'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #15'
+    dependencies:
+      - 'Block #14'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #16'
+    dependencies:
+      - 'Block #15'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #17'
+    dependencies:
+      - 'Block #16'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #18'
+    dependencies:
+      - 'Block #17'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
