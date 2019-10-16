@@ -10,8 +10,7 @@ blocks:
     task:
       jobs:
         - name: 'Job #1'
-          commands:
-            - sleep 3700
+          commands: []
   - name: 'Block #2'
     dependencies:
       - 'Block #1'
