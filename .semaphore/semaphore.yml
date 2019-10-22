@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: Lint
           commands:
-            - make back.lint
+            - echo "here"
   - name: Backend - Tests
     dependencies:
       - Backend - Lint
@@ -19,7 +19,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
-            - make back.tests
+            - echo "backend"
           parallelism: 4
   - name: Frontend - Lint
     dependencies: []
@@ -27,7 +27,7 @@ blocks:
       jobs:
         - name: Lint
           commands:
-            - make front.lint
+            - echo "here"
   - name: Frontend - Tests
     dependencies:
       - Frontend - Lint
@@ -35,7 +35,7 @@ blocks:
       jobs:
         - name: Tests
           commands:
-            - make front.tests
+            - echo "front"
           parallelism: 4
   - name: E2E
     dependencies:
