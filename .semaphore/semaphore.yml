@@ -98,3 +98,9 @@ blocks:
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_2.yml
+  - name: Promotion 2
+    pipeline_file: pipeline_7.yml
+  - name: Promotion 3
+    pipeline_file: pipeline_8.yml
+  - name: Promotion 4
+    pipeline_file: pipeline_9.yml

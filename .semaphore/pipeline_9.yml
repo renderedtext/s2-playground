@@ -1,5 +1,5 @@
 version: v1.0
-name: Pipeline 2
+name: Pipeline 9
 blocks:
   - name: 'Block #1'
     task:
@@ -11,10 +11,3 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-promotions:
-  - name: Promotion 1
-    pipeline_file: pipeline_3.yml
-  - name: Promotion 2
-    pipeline_file: pipeline_4.yml
-  - name: Promotion 3
-    pipeline_file: pipeline_6.yml

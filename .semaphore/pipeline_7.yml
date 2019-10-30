@@ -1,0 +1,41 @@
+version: v1.0
+name: Pipeline 7
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "job 1"
+  - name: 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #4'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #5'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #6'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+promotions:
+  - name: Promotion 1
+    pipeline_file: pipeline_10.yml
