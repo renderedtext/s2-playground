@@ -96,8 +96,6 @@ blocks:
         - name: 'Job #1'
           commands: []
 promotions:
-  - name: Promotion 1
-    pipeline_file: pipeline_2.yml
   - name: Promotion 2
     pipeline_file: pipeline_7.yml
   - name: Promotion 3
