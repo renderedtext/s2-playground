@@ -12,7 +12,7 @@ blocks:
         - name: Pull
           commands:
             - >-
-              sudo bash -c 'echo '{"mac_concurrent_downloads": 10}' >
+              sudo bash -c 'echo '{"max_concurrent_downloads": 10}' >
               /etc/docker/daemon.json' && sudo service docker restart
             - 'docker pull sempahoreci/ruby:2.6'
           parallelism: 20
