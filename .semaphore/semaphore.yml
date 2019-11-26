@@ -23,5 +23,5 @@ blocks:
       jobs:
         - name: Pull
           commands:
-            - 'docker pull sempahoreci/ruby:2.6'
+            - 'docker pull semaphoreci/ruby:2.6'
           parallelism: 20
