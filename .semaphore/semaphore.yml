@@ -9,8 +9,11 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: Pull Zephyr
+        - name: Pull Postgres
           commands:
+            - >-
+              sudo bash -c 'echo '{}' > /etc/docker/daemon.json' && sudo service
+              docker restart
             - 'docker pull postgres:11'
           parallelism: 20
   - name: 'Block #2'
