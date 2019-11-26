@@ -11,6 +11,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands: []
+          parallelism: 20
   - name: 'Block #2'
     dependencies:
       - 'Block #1'
