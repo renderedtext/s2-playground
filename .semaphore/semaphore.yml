@@ -2,16 +2,17 @@ version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
-    type: e1-standard-2
+    type: e1-standard-4
     os_image: ubuntu1804
 blocks:
   - name: 'Block #1'
     dependencies: []
     task:
       jobs:
-        - name: 'Job #1'
-          commands: []
-          parallelism: 20
+        - name: Pull Zephyr
+          commands:
+            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
+          parallelism: 10
   - name: 'Block #2'
     dependencies:
       - 'Block #1'
