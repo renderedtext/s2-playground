@@ -11,11 +11,8 @@ blocks:
       jobs:
         - name: Pull Zephyr
           commands:
-            - >-
-              sudo bash -c 'echo '{}' > /etc/docker/daemon.json' && sudo service
-              docker restart
             - 'docker pull zephyrprojectrtos/ci:v0.9.1'
-          parallelism: 10
+          parallelism: 20
   - name: 'Block #2'
     dependencies:
       - 'Block #1'
