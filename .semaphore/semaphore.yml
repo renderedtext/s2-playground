@@ -9,19 +9,19 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: Pull Postgres
+        - name: Pull
           commands:
             - >-
               sudo bash -c 'echo '{"mac_concurrent_downloads": 10}' >
               /etc/docker/daemon.json' && sudo service docker restart
-            - 'docker pull postgres:9.6'
+            - 'docker pull sempahoreci/ruby:2.6'
           parallelism: 20
   - name: From DH Mirror
     dependencies:
       - From DH directly
     task:
       jobs:
-        - name: Pull Postgres
+        - name: Pull
           commands:
-            - 'docker pull postgres:9.6'
+            - 'docker pull sempahoreci/ruby:2.6'
           parallelism: 20
