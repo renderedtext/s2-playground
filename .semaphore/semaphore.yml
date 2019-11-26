@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: Pull Zephyr
           commands:
-            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
+            - 'docker pull postgres:11'
           parallelism: 20
   - name: 'Block #2'
     dependencies:
