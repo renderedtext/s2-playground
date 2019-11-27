@@ -1,62 +1,71 @@
-version: "v1.0"
+version: v1.0
 name: Test
-
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 promotions:
-  - name: moon 🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙
+  - name: "moon \U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319\U0001F319"
     pipeline_file: moon.yml
-
 blocks:
-  - name: "A"
+  - name: A
     dependencies: []
     task:
       jobs:
-      - name: "A"
-        commands:
-          - sleep 10
-  - name: "B"
-    dependencies: ["A"]
+        - name: A
+          commands:
+            - sleep 10
+  - name: B
+    dependencies:
+      - A
     task:
       jobs:
-      - name: "B"
-        commands:
-          - sleep 10
-  - name: "C"
-    dependencies: ["B"]
+        - name: B
+          commands:
+            - sleep 10
+  - name: C
+    dependencies:
+      - B
     task:
       jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-  - name: "D"
+        - name: C
+          commands:
+            - sleep 10
+  - name: D
     dependencies: []
     task:
       jobs:
-      - name: "D"
-        commands:
-          - sleep 10
-  - name: "E"
+        - name: D
+          commands:
+            - sleep 10
+  - name: E
     dependencies: []
     task:
       jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-  - name: "F"
-    dependencies: ["E"]
+        - name: E
+          commands:
+            - sleep 10
+  - name: F
+    dependencies:
+      - E
     task:
       jobs:
-      - name: "F"
-        commands:
-          - sleep 10
-  - name: "G"
-    dependencies: ["F", "D"]
+        - name: F
+          commands:
+            - sleep 10
+  - name: G
+    dependencies:
+      - F
+      - D
     task:
       jobs:
-      - name: "G"
-        commands:
-          - sleep 10
+        - name: G
+          commands:
+            - sleep 10
+  - name: 'Block #8'
+    dependencies:
+      - C
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
