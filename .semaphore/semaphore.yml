@@ -12,7 +12,7 @@ blocks:
         - name: Pull
           commands:
             - >-
-              echo '{"max_concurrent_downloads": 10}' | sudo tee
+              echo '{"max-concurrent-downloads": 10}' | sudo tee
               /etc/docker/daemon.json
             - sudo cat /etc/docker/daemon.json
             - sudo service docker restart
