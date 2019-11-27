@@ -14,6 +14,7 @@ blocks:
             - >-
               echo '{"max_concurrent_downloads": 10}' | sudo tee
               /etc/docker/daemon.json
+            - sudo cat /etc/docker/daemon.json
             - sudo service docker restart
             - 'docker pull zephyrprojectrtos/ci:v0.9.1'
           parallelism: 20
