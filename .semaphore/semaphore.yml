@@ -12,9 +12,10 @@ blocks:
         - name: Pull
           commands:
             - >-
-              sudo bash -c 'echo '{"max_concurrent_downloads": 10}' >
-              /etc/docker/daemon.json' && sudo service docker restart
-            - 'docker pull semaphoreci/ruby:2.6'
+              echo '{"max_concurrent_downloads": 10}' | sudo tee
+              /etc/docker/daemon.json
+            - sudo service docker restart
+            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
           parallelism: 20
   - name: From DH Mirror
     dependencies:
@@ -23,5 +24,11 @@ blocks:
       jobs:
         - name: Pull
           commands:
-            - 'docker pull semaphoreci/ruby:2.6'
+            - >-
+              echo '{ "registry-mirrors":
+              ["https://dockerhub.semaphoreci.com/"],
+              "max-concurrent-downloads": 10 }'  | sudo tee
+              /etc/docker/daemon.json 
+            - sudo service docker restart
+            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
           parallelism: 20
