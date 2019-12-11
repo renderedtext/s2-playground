@@ -11,25 +11,5 @@ blocks:
       jobs:
         - name: Pull
           commands:
-            - >-
-              echo '{"max-concurrent-downloads": 10}' | sudo tee
-              /etc/docker/daemon.json
-            - sudo cat /etc/docker/daemon.json
-            - sudo service docker restart
-            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
-          parallelism: 20
-  - name: From DH Mirror
-    dependencies:
-      - From DH directly
-    task:
-      jobs:
-        - name: Pull
-          commands:
-            - >-
-              echo '{ "registry-mirrors":
-              ["https://dockerhub.semaphoreci.com/"],
-              "max-concurrent-downloads": 10 }'  | sudo tee
-              /etc/docker/daemon.json 
-            - sudo service docker restart
-            - 'docker pull zephyrprojectrtos/ci:v0.9.1'
-          parallelism: 20
+            - echo "hello"
+          parallelism: 3
