@@ -13,17 +13,3 @@ blocks:
           commands:
             - echo "hello"
           parallelism: 3
-  - name: 'Block #2'
-    dependencies:
-      - From DH directly
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
-promotions:
-  - name: Staging
-    pipeline_file: staging.yml
-  - name: Production
-    pipeline_file: prod.yml
-    auto_promote:
-      when: branch = 'example-5' AND result = 'passed'
