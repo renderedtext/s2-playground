@@ -9,7 +9,9 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: Pull
+        - name: >-
+            Pull sdfa sdf asdfa sdfasdfasdfasdf asdf asd fa sdf as dfa
+            sdfdsafdasdf
           commands:
             - echo "hello"
           parallelism: 3
