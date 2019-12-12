@@ -13,3 +13,13 @@ blocks:
           commands:
             - echo "hello"
           parallelism: 3
+  - name: 'Block #2'
+    dependencies:
+      - From DH directly
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "adasdsa"
+            - echo "dasdsa"
+          parallelism: 20
