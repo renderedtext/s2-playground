@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: AAA
           commands:
-            - 'for i in {1..10000}; { printf ''hello''; sleep 1; }'
+            - 'for i in {1..1000}; { printf ''hello''; sleep 0.1; }'
       agent:
         machine:
           type: e1-standard-8
