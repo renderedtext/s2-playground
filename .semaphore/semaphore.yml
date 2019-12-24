@@ -11,7 +11,7 @@ blocks:
       jobs:
         - name: AAA
           commands:
-            - 'for i in {1..1000}; { echo ''hello''; sleep 0.1; }'
+            - 'for i in {1..1000}; { printf ''hello''; sleep 0.1; }'
           parallelism: 35
       agent:
         machine:
