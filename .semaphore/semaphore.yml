@@ -1,41 +1,18 @@
-version: "v1.0"
+version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: "A"
+  - name: A
     dependencies: []
     task:
       jobs:
-      - name: "A"
-        commands:
-          - sleep 10
-          - echo "A"
-          
-  - name: "B"
-    dependencies: []
-    task:
-      jobs:
-      - name: "B"
-        commands:
-          - sleep 10
-          - echo "B"
-  - name: "C"
-    dependencies: []
-    task:
-      jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: []
-    task:
-      jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
+        - name: A
+          commands:
+            - sleep 10
+            - echo "A"
+promotions:
+  - name: Promotion 1
+    pipeline_file: pipeline_2.yml
