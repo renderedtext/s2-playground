@@ -1,0 +1,13 @@
+version: v1.0
+name: Staging
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - echo "dadas"
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
