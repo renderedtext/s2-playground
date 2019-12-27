@@ -16,3 +16,11 @@ blocks:
 promotions:
   - name: Promotion 2
     pipeline_file: pipeline_3.yml
+  - name: Promotion 2
+    pipeline_file: pipeline_3.yml
+  - name: Promotion 3
+    pipeline_file: pipeline_4.yml
+  - name: Promotion 4
+    pipeline_file: pipeline_5.yml
+  - name: Promotion 5
+    pipeline_file: pipeline_6.yml
