@@ -14,7 +14,7 @@ blocks:
             - sleep 10
             - echo "A"
 promotions:
-  - name: Promotion 2
+  - name: Promotion 22
     pipeline_file: pipeline_3.yml
   - name: Promotion 2
     pipeline_file: pipeline_3.yml
