@@ -13,21 +13,7 @@ blocks:
           commands:
             - sleep 10
             - echo "A"
-  - name: 'Block #2'
-    dependencies:
-      - A
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
-          parallelism: 18
-  - name: 'Block #3'
-    dependencies:
-      - 'Block #2'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
+          parallelism: 4
 promotions:
   - name: Promotion 3
     pipeline_file: pipeline_4.yml
@@ -35,7 +21,3 @@ promotions:
     pipeline_file: 2121212.yml
   - name: Promotion 3342343
     pipeline_file: pipeline_4.yml
-  - name: Production
-    pipeline_file: pipeline_4.yml
-    auto_promote:
-      when: branch = 'master' AND result = 'passed'
