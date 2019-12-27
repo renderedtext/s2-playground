@@ -14,3 +14,10 @@ blocks:
             - sleep 10
             - echo "A"
           parallelism: 4
+  - name: 'Block #2'
+    dependencies:
+      - A
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
