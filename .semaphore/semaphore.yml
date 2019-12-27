@@ -18,5 +18,5 @@ promotions:
     pipeline_file: pipeline_4.yml
   - name: Promotion 5312
     pipeline_file: 2121212.yml
-  - name: Promotion 3
+  - name: Promotion 3342343
     pipeline_file: pipeline_4.yml
