@@ -9,11 +9,8 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: A
-          commands:
-            - sleep 10
-            - echo "A"
-          parallelism: 4
+        - name: 'Job #2'
+          commands: []
   - name: 'Block #2'
     dependencies:
       - A
