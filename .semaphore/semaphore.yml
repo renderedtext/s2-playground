@@ -19,14 +19,6 @@ blocks:
       jobs:
         - name: Rubocop
           commands: []
-  - name: Code Coverage Report
-    dependencies:
-      - Cucumenber
-      - Unit
-    task:
-      jobs:
-        - name: Send to Codo Climate
-          commands: []
   - name: Cucumenber
     dependencies:
       - Linters
