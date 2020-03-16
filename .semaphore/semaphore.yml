@@ -5,16 +5,36 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: A
+  - name: Unit
+    dependencies:
+      - Linters
+    task:
+      jobs:
+        - name: RSpect
+          commands: []
+          parallelism: 5
+  - name: Linters
     dependencies: []
     task:
       jobs:
-        - name: 'Job #2'
+        - name: Rubocop
           commands: []
-  - name: 'Block #2'
+  - name: Code Coverage Report
     dependencies:
-      - A
+      - Cucumenber
+      - Unit
+    task:
+      jobs:
+        - name: Send to Codo Climate
+          commands: []
+  - name: Cucumenber
+    dependencies:
+      - Linters
     task:
       jobs:
         - name: 'Job #1'
           commands: []
+          parallelism: 5
+promotions:
+  - name: Staging
+    pipeline_file: pipeline_2.yml
