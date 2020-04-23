@@ -1,44 +1,42 @@
-version: "v1.0"
+version: v1.0
 name: Deploy to Jupiter
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 promotions:
   - name: Uranus
     pipeline_file: uranus.yml
-
 blocks:
-  - name: "A"
+  - name: A
     dependencies: []
     task:
       jobs:
-      - name: "A"
-        commands:
-          - sleep 10
-          - echo "A"
-  - name: "B"
+        - name: A
+          commands:
+            - sleep 10
+            - echo "A"
+  - name: B
     dependencies: []
     task:
       jobs:
-      - name: "B"
-        commands:
-          - sleep 10
-          - echo "B"
-  - name: "C"
+        - name: B
+          commands:
+            - sleep 10
+            - echo "B"
+  - name: C
     dependencies: []
     task:
       jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
+        - name: C
+          commands:
+            - sleep 10
+            - echo "C"
+  - name: E
     dependencies: []
     task:
       jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
+        - name: E
+          commands:
+            - sleep 10
+            - echo "E"

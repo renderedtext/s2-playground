@@ -1,53 +1,56 @@
-version: "v1.0"
+version: v1.0
 name: Deploy to Venus
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 promotions:
   - name: Saturn
     pipeline_file: saturn.yml
-
 blocks:
-  - name: "A"
+  - name: A
     dependencies: []
     task:
       jobs:
-      - name: "A"
-        commands:
-          - sleep 10
-          - echo "A"
-  - name: "C"
-    dependencies: ["A"]
+        - name: A
+          commands:
+            - sleep 10
+            - echo "A"
+  - name: C
+    dependencies:
+      - A
     task:
       jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
-  - name: "B"
-    dependencies: ["A"]
+        - name: C
+          commands:
+            - sleep 10
+            - echo "C"
+  - name: B
+    dependencies:
+      - A
     task:
       jobs:
-      - name: "B"
-        commands:
-          - sleep 10
-          - echo "B"
-
-  - name: "D"
-    dependencies: ["A"]
+        - name: B
+          commands:
+            - sleep 10
+            - echo "B"
+  - name: D
+    dependencies:
+      - A
     task:
       jobs:
-      - name: "C"
-        commands:
-          - sleep 10
-          - echo "C"
-  - name: "E"
-    dependencies: ["B","C","D"]
+        - name: C
+          commands:
+            - sleep 10
+            - echo "C"
+  - name: E
+    dependencies:
+      - B
+      - C
+      - D
     task:
       jobs:
-      - name: "E"
-        commands:
-          - sleep 10
-          - echo "E"
+        - name: E
+          commands:
+            - sleep 10
+            - echo "E"

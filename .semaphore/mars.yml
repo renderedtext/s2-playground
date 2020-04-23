@@ -1,77 +1,82 @@
-version: "v1.0"
+version: v1.0
 name: Deploy to Mars
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 promotions:
   - name: Jupiter
     pipeline_file: jupiter.yml
-
 blocks:
-  - name: "1"
+  - name: '1'
     dependencies: []
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "2"
-    dependencies: ["1", "6"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '2'
+    dependencies:
+      - '1'
+      - '6'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "3"
-    dependencies: ["2", "7"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '3'
+    dependencies:
+      - '2'
+      - '7'
     task:
       jobs:
-      - name: "job 1"
-        commands:
-          - sleep 10
-      - name: "job 2"
-        commands:
-          - sleep 10
-      - name: "job 3"
-        commands:
-          - sleep 10
-      - name: "job 4"
-        commands:
-          - sleep 10
-  - name: "4"
-    dependencies: ["3", "8"]
+        - name: job 1
+          commands:
+            - sleep 10
+        - name: job 2
+          commands:
+            - sleep 10
+        - name: job 3
+          commands:
+            - sleep 10
+        - name: job 4
+          commands:
+            - sleep 10
+  - name: '4'
+    dependencies:
+      - '3'
+      - '8'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "5"
-    dependencies: ["4"]
+        - name: job
+          commands:
+            - sleep 10
+  - name: '5'
+    dependencies:
+      - '4'
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "6"
+        - name: job
+          commands:
+            - sleep 10
+  - name: '6'
     dependencies: []
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "7"
+        - name: job
+          commands:
+            - sleep 10
+  - name: '7'
     dependencies: []
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
-  - name: "8"
+        - name: job
+          commands:
+            - sleep 10
+  - name: '8'
     dependencies: []
     task:
       jobs:
-      - name: "job"
-        commands:
-          - sleep 10
+        - name: job
+          commands:
+            - sleep 10
