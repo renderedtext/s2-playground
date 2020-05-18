@@ -12,4 +12,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - set -o pipefail
-            - false | tee /tmp/a
+            - false | tee /sdfas/tmp/a
