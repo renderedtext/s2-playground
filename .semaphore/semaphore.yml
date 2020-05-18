@@ -5,27 +5,11 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: 'Gen Artifacts #2'
-    task:
-      jobs:
-        - name: bundle install
-          commands:
-            - checkout
-            - sem-version ruby 2.6.0
-            - bundle install --deployment --path vendor/bundle
-            - bundle exec rspec
-    dependencies: []
-  - name: Release
-    dependencies:
-      - 'Gen Artifacts #1'
-      - 'Gen Artifacts #2'
-    task:
-      jobs:
-        - name: make upload
-          commands: []
   - name: 'Gen Artifacts #1'
     dependencies: []
     task:
       jobs:
         - name: 'Job #1'
-          commands: []
+          commands:
+            - set -o pipefail
+            - false | tee /tmp/a
