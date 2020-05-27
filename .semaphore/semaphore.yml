@@ -11,5 +11,62 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - set -o pipefail
-            - false | tee /sdfas/tmp/a
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
+  - name: 'Block #2'
+    dependencies:
+      - 'Gen Artifacts #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
+  - name: 'Block #3'
+    dependencies:
+      - 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
+  - name: 'Block #4'
+    dependencies:
+      - 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
+  - name: 'Block #5'
+    dependencies:
+      - 'Block #4'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
+  - name: 'Block #6'
+    dependencies:
+      - 'Block #5'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sleep 30
+        - name: 'Job #2'
+          commands:
+            - sleep 10
