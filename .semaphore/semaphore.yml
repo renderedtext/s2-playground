@@ -4,9 +4,6 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-  containers:
-    - name: main
-      image: 'semaphoreci/ubuntu:18.04'
 blocks:
   - name: 'Gen Artifacts #1'
     dependencies: []
@@ -14,7 +11,5 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - sleep 900
-        - name: 'Job #2'
-          commands:
-            - sleep 900
+            - sleep 30
+          parallelism: 37
