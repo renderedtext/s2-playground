@@ -12,4 +12,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - sleep 200
-          parallelism: 50
+          parallelism: 7
