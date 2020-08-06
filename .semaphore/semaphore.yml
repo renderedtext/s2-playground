@@ -5,23 +5,10 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 global_job_config:
-  prologue:
-    commands:
-      - checkout
-      - sem-version ruby 2.7.1
-      - sem-version node 11
-      - sem-service start postgres 9.6
-      - sem-service start elasticsearch 6.2
-      - sem-service start redis 4.0
-      - cache restore
-      - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - yarn install
-      - cache store
-      - cp config/database.yml.ci config/database.yml
-      - 'bundle exec rake db:create db:schema:load --trace'
   epilogue:
-    commands:
-      - artifact push job reports
+    always:
+      commands:
+        - 'echo "hello, pipeline level epilogue"'
   env_vars:
     - name: TZ
       value: /usr/share/zoneinfo/America/New_York
@@ -45,10 +32,3 @@ blocks:
         - name: Docs Check
           commands:
             - 'bundle exec rake db:seed documentation:load'
-  - name: Tests
-    task:
-      jobs:
-        - name: Minitests
-          commands:
-            - bin/webpack
-            - bundle exec rails test
