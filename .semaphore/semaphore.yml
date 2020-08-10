@@ -21,14 +21,11 @@ blocks:
     task:
       jobs:
         - name: Ruby Audit
+          parallelism: 4
+          matrix:
+            - env_var: JAVA_VERSION
+              values:
+                - '8'
+                - '11'
           commands:
             - bundle exec ruby-audit check
-        - name: Rubocop
-          commands:
-            - bundle exec rubocop
-        - name: Incenerator
-          commands:
-            - 'bundle exec rake incinerator:check_for_missing_models'
-        - name: Docs Check
-          commands:
-            - 'bundle exec rake db:seed documentation:load'
