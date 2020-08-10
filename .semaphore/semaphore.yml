@@ -21,6 +21,7 @@ blocks:
     task:
       jobs:
         - name: Ruby Audit
+          parallelism: 4
           matrix:
             - env_var: JAVA_VERSION
               values:
