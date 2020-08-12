@@ -1,5 +1,5 @@
 version: v1.0
-name: Test
+name: CI Pipelines
 agent:
   machine:
     type: e1-standard-2
@@ -17,20 +17,9 @@ global_job_config:
     - name: RACK_ENV
       value: test
 blocks:
-  - name: Static Code Analysis
+  - name: Tests
     task:
       jobs:
-        - name: Ruby Audit
-          matrix:
-            - env_var: JAVA_VERSION
-              values:
-                - '8'
-                - '11'
-            - env_var: SEMAPHORE_JOB_INDEX
-              values:
-                - '1'
-                - '2'
-                - '3'
-                - '4'
+        - name: Unit tests
           commands:
-            - bundle exec ruby-audit check
+            - echo "hello tests"
