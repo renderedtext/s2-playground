@@ -11,13 +11,5 @@ blocks:
       jobs:
         - name: Rubocop
           commands:
-            - sleep 10
-            - echo "A"
-  - name: Unit Tests
-    dependencies:
-      - Lint
-    task:
-      jobs:
-        - name: RSpec
-          commands: []
-          parallelism: 4
+            - set -o pipefail
+            - echo a | false
