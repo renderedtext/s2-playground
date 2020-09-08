@@ -11,5 +11,4 @@ blocks:
       jobs:
         - name: Rubocop
           commands:
-            - set -e
-            - 'false'
+            - exit 1
