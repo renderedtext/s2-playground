@@ -11,5 +11,5 @@ blocks:
       jobs:
         - name: Rubocop
           commands:
-            - set -o pipefail
-            - echo a | false
+            - set -e
+            - 'false'
