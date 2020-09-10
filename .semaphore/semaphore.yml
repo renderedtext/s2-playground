@@ -9,6 +9,14 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: Rubocop
+        - name: Exit 1
           commands:
             - exit 1
+        - name: Set -e
+          commands:
+            - set -e
+            - 'false'
+        - name: Set Pipefail
+          commands:
+            - set -eo pipefail
+            - cat lol | sort
