@@ -13,6 +13,22 @@ blocks:
           commands:
             - echo "A"
           parallelism: 50
+  - name: B
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - echo "A"
+          parallelism: 50
+  - name: C
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - echo "A"
+          parallelism: 50
 promotions:
   - name: Promotion 3
     pipeline_file: pipeline_4.yml
