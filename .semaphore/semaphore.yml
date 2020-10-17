@@ -2,8 +2,8 @@ version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
-    type: a1-standard-4
-    os_image: macos-mojave-xcode11
+    type: e1-standard-2
+    os_image: ubuntu1804
 blocks:
   - name: A
     dependencies: []
@@ -13,6 +13,7 @@ blocks:
           commands:
             - sleep 10
             - echo "A"
+          parallelism: 50
 promotions:
   - name: Promotion 3
     pipeline_file: pipeline_4.yml
