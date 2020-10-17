@@ -11,7 +11,6 @@ blocks:
       jobs:
         - name: A
           commands:
-            - sleep 10
             - echo "A"
           parallelism: 50
 promotions:
