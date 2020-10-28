@@ -4,6 +4,9 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'semaphoreci/ubuntu:18.04'
 blocks:
   - name: A
     dependencies: []
@@ -11,26 +14,4 @@ blocks:
       jobs:
         - name: A
           commands:
-            - echo "A"
-          parallelism: 50
-  - name: B
-    dependencies: []
-    task:
-      jobs:
-        - name: A
-          commands:
-            - echo "A"
-          parallelism: 50
-  - name: C
-    dependencies: []
-    task:
-      jobs:
-        - name: A
-          commands:
-            - echo "A"
-          parallelism: 50
-promotions:
-  - name: Promotion 3
-    pipeline_file: pipeline_4.yml
-  - name: Promotion 5312
-    pipeline_file: 2121212.yml
+            - docker ps -a
