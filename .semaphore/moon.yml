@@ -4,9 +4,6 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-promotions:
-  - name: venus
-    pipeline_file: venus.yml
 blocks:
   - name: A
     dependencies: []
@@ -111,3 +108,6 @@ blocks:
           commands:
             - sleep 10
             - echo "E"
+promotions:
+  - name: venus
+    pipeline_file: venus.yml

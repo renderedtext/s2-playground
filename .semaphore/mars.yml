@@ -4,9 +4,6 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-promotions:
-  - name: Jupiter
-    pipeline_file: jupiter.yml
 blocks:
   - name: '1'
     dependencies: []
@@ -80,3 +77,6 @@ blocks:
         - name: job
           commands:
             - sleep 10
+promotions:
+  - name: Jupiter
+    pipeline_file: jupiter.yml

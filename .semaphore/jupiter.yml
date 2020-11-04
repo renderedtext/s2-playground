@@ -4,9 +4,6 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-promotions:
-  - name: Uranus
-    pipeline_file: uranus.yml
 blocks:
   - name: A
     dependencies: []
@@ -40,3 +37,6 @@ blocks:
           commands:
             - sleep 10
             - echo "E"
+promotions:
+  - name: Uranus
+    pipeline_file: uranus.yml
