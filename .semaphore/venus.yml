@@ -1,5 +1,5 @@
 version: v1.0
-name: Test
+name: Deploy to Venus
 agent:
   machine:
     type: e1-standard-2
@@ -12,6 +12,16 @@ blocks:
         - name: A
           commands:
             - sleep 10
+            - echo "A"
+  - name: C
+    dependencies:
+      - A
+    task:
+      jobs:
+        - name: C
+          commands:
+            - sleep 10
+            - echo "C"
   - name: B
     dependencies:
       - A
@@ -20,52 +30,27 @@ blocks:
         - name: B
           commands:
             - sleep 10
-  - name: C
+            - echo "B"
+  - name: D
     dependencies:
-      - B
+      - A
     task:
       jobs:
         - name: C
           commands:
             - sleep 10
-  - name: D
-    dependencies: []
-    task:
-      jobs:
-        - name: D
-          commands:
-            - sleep 10
+            - echo "C"
   - name: E
-    dependencies: []
+    dependencies:
+      - B
+      - C
+      - D
     task:
       jobs:
         - name: E
           commands:
             - sleep 10
-  - name: F
-    dependencies:
-      - E
-    task:
-      jobs:
-        - name: F
-          commands:
-            - sleep 10
-  - name: G
-    dependencies:
-      - F
-      - D
-    task:
-      jobs:
-        - name: G
-          commands:
-            - sleep 10
-  - name: 'Block #8'
-    dependencies:
-      - C
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
+            - echo "E"
 promotions:
-  - name: "moon \U0001F31D"
-    pipeline_file: moon.yml
+  - name: Saturn
+    pipeline_file: saturn.yml

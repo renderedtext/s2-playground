@@ -1,0 +1,113 @@
+version: v1.0
+name: Deploy to Moon
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: A
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - sleep 10
+            - echo "A"
+  - name: B
+    dependencies: []
+    task:
+      jobs:
+        - name: B
+          commands:
+            - sleep 10
+            - echo "B"
+  - name: C
+    dependencies:
+      - A
+    task:
+      jobs:
+        - name: C 1/4
+          commands:
+            - sleep 10
+            - echo "C"
+        - name: C 2/4
+          commands:
+            - sleep 10
+            - echo "C"
+        - name: C 3/4
+          commands:
+            - sleep 10
+            - echo "C"
+        - name: C 4/4
+          commands:
+            - sleep 10
+            - echo "C"
+  - name: D
+    dependencies:
+      - C
+    task:
+      jobs:
+        - name: D
+          commands:
+            - sleep 10
+            - ls break
+  - name: E
+    dependencies:
+      - D
+      - A
+    task:
+      jobs:
+        - name: E 1/6
+          commands:
+            - sleep 10
+            - echo "E"
+        - name: E 2/6
+          commands:
+            - sleep 10
+            - echo "E"
+        - name: E 3/6
+          commands:
+            - sleep 10
+            - echo "E"
+        - name: E 4/6
+          commands:
+            - sleep 10
+            - echo "E"
+        - name: E 5/6
+          commands:
+            - sleep 10
+            - echo "E"
+        - name: E 6/6
+          commands:
+            - sleep 10
+            - echo "E"
+  - name: F
+    dependencies:
+      - D
+    task:
+      jobs:
+        - name: E
+          commands:
+            - sleep 10
+            - echo "E"
+  - name: G
+    dependencies:
+      - B
+    task:
+      jobs:
+        - name: E
+          commands:
+            - sleep 10
+            - echo "E"
+  - name: H
+    dependencies:
+      - B
+    task:
+      jobs:
+        - name: E
+          commands:
+            - sleep 10
+            - echo "E"
+promotions:
+  - name: "moon \U0001F31D"
+    pipeline_file: moon.yml

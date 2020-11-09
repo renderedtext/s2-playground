@@ -1,71 +1,73 @@
 version: v1.0
-name: Test
+name: Deploy to Saturn
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: A
+  - name: '1'
     dependencies: []
     task:
       jobs:
-        - name: A
+        - name: job
           commands:
             - sleep 10
-  - name: B
+  - name: '2'
     dependencies:
-      - A
+      - '1'
     task:
       jobs:
-        - name: B
+        - name: job
           commands:
             - sleep 10
-  - name: C
+  - name: '3'
     dependencies:
-      - B
+      - '2'
     task:
       jobs:
-        - name: C
+        - name: job
           commands:
             - sleep 10
-  - name: D
-    dependencies: []
-    task:
-      jobs:
-        - name: D
-          commands:
-            - sleep 10
-  - name: E
-    dependencies: []
-    task:
-      jobs:
-        - name: E
-          commands:
-            - sleep 10
-  - name: F
+  - name: '4'
     dependencies:
-      - E
+      - '3'
     task:
       jobs:
-        - name: F
+        - name: job
           commands:
             - sleep 10
-  - name: G
+  - name: '5'
     dependencies:
-      - F
-      - D
+      - '3'
     task:
       jobs:
-        - name: G
+        - name: job
           commands:
             - sleep 10
-  - name: 'Block #8'
+  - name: '6'
     dependencies:
-      - C
+      - '3'
     task:
       jobs:
-        - name: 'Job #1'
-          commands: []
+        - name: job
+          commands:
+            - sleep 10
+  - name: '7'
+    dependencies:
+      - '3'
+    task:
+      jobs:
+        - name: job
+          commands:
+            - sleep 10
+  - name: '8'
+    dependencies:
+      - '3'
+    task:
+      jobs:
+        - name: job
+          commands:
+            - sleep 10
 promotions:
-  - name: "moon \U0001F31D"
-    pipeline_file: moon.yml
+  - name: Mars
+    pipeline_file: mars.yml
