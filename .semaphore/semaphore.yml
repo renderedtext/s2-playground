@@ -11,16 +11,7 @@ blocks:
       jobs:
         - name: A
           commands:
-            - echo "a" > file.txt
-            - artifact push job file.txt
-          parallelism: 50
-  - name: 'Block #2'
-    dependencies: []
-    task:
-      jobs:
-        - name: 'Job #1 dsfasdfasdfasdfasdfasdfasdkjfhaklsjdhflashdfkasd fa sdf asd fas dfa sdf asd'
-          commands: []
-          parallelism: 50
+            - echo "a"
 promotions:
   - name: "moon \U0001F31D"
     pipeline_file: moon.yml
