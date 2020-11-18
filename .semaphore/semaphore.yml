@@ -21,6 +21,7 @@ blocks:
             - 'export PATH="/home/semaphore/when:$PATH"'
             - cd ~
             - 'git clone https://github.com/semaphoreci/spc'
+            - cd ~/spc
             - sem-version go 1.15
             - export GO111MODULE=on
             - export GOPATH=~/go
