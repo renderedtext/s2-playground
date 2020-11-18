@@ -12,6 +12,12 @@ blocks:
     dependencies: []
     task:
       jobs:
-        - name: A
+        - name: test
           commands:
-            - docker ps -a
+            - 'git clone https://github.com/renderedtext/when'
+            - cd when
+            - git checkout reduce
+            - make setup
+            - make escript.build
+            - 'export PATH="/home/semaphore/when:$PATH"'
+            - when list-inputs "branch = 'master' and change_in('lib')"
