@@ -12,6 +12,7 @@ blocks:
         - name: Evaluate Change In Expressions
           commands:
             - checkout
+            - cat .semaphore/semaphore.yml
             - cd ~
             - 'git clone https://github.com/renderedtext/when'
             - cd when
