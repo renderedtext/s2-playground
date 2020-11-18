@@ -30,6 +30,8 @@ blocks:
             - sudo cp build/cli /usr/bin/spc
             - cd ~
             - cd ~/s2-playground
+            - 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
+            - git fetch --all
             - spc evaluate change-in --input .semaphore/semaphore.yml --output /tmp/result.yml --logs /tmp/logs.jsonl
             - cat /tmp/result.yml
     skip:
