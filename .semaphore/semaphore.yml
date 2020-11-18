@@ -29,7 +29,7 @@ blocks:
             - sudo cp build/cli /usr/bin/spc
             - cd ~
             - when list-inputs "branch = 'master' and change_in('lib')"
-            - spc evaluate change-in --input ~/s2-playground/.semaphore/semaphore.yml --output /tmp/result.yml --log /tmp/logs.jsonl
+            - spc evaluate change-in --input ~/s2-playground/.semaphore/semaphore.yml --output /tmp/result.yml --logs /tmp/logs.jsonl
             - cat cat /tmp/result.yml
     skip:
       when: branch = 'master' and change_in('lib')
