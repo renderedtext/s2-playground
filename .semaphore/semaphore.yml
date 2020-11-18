@@ -5,16 +5,31 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: A
+  - name: When Expression Tester
     dependencies: []
     task:
       jobs:
-        - name: test
+        - name: Evaluate Change In Expressions
           commands:
+            - checkout
+            - cd ~
             - 'git clone https://github.com/renderedtext/when'
             - cd when
             - git checkout reduce
             - make setup
             - make escript.build
             - 'export PATH="/home/semaphore/when:$PATH"'
+            - cd ~
+            - 'git clone https://github.com/semaphoreci/spc'
+            - sem-version go 1.15
+            - export GO111MODULE=on
+            - export GOPATH=~/go
+            - '''export PATH=/home/semaphore/go/bin:$PATH'''
+            - make build
+            - sudo cp build/cli /usr/bin/spc
+            - cd ~
             - when list-inputs "branch = 'master' and change_in('lib')"
+            - spc evaluate change-in --input ~/s2-playground/.semaphore/semaphore.yml --output /tmp/result.yml --log /tmp/logs.jsonl
+            - cat cat /tmp/result.yml
+    skip:
+      when: branch = 'master' and change_in('lib')
