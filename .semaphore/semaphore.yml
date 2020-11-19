@@ -33,6 +33,7 @@ blocks:
             - 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
             - git fetch --all
             - spc evaluate change-in --input .semaphore/semaphore.yml --output /tmp/result.yml --logs /tmp/logs.jsonl
+            - cat .semaphore/semaphore.yml
             - cat /tmp/result.yml
     skip:
       when: branch = 'master' and change_in('lib')
