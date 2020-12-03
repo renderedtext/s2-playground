@@ -4,6 +4,10 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+global_job_config:
+  prologue:
+    commands:
+      - checkout
 blocks:
   - name: A
     task:
@@ -27,76 +31,6 @@ blocks:
             - docker ps -a
           parallelism: 50
   - name: D
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: E
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: F
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: F2
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: A1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: B1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: C1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: D1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: E1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: F1
-    task:
-      jobs:
-        - name: A
-          commands:
-            - docker ps -a
-          parallelism: 50
-  - name: F3
     task:
       jobs:
         - name: A
