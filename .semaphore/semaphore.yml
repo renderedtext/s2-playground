@@ -12,7 +12,6 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-    dependencies: []
   - name: B
     task:
       jobs:
@@ -20,7 +19,6 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-    dependencies: []
   - name: C
     task:
       jobs:
@@ -28,7 +26,6 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-    dependencies: []
   - name: D
     task:
       jobs:
@@ -36,4 +33,73 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-    dependencies: []
+  - name: E
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: F
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: F
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: A1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: B1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: C1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: D1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: E1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: F1
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: F2
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
