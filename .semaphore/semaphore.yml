@@ -15,3 +15,28 @@ blocks:
         - name: A
           commands:
             - docker ps -a
+          parallelism: 50
+  - name: B
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: C
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
+  - name: D
+    dependencies: []
+    task:
+      jobs:
+        - name: A
+          commands:
+            - docker ps -a
+          parallelism: 50
