@@ -2,11 +2,12 @@ version: v1.0
 name: Complex pipeline without dependencies
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-  containers:
-    - name: main
-      image: 'semaphoreci/ubuntu:18.04'
+    type: a1-standard-4
+    os_image: macos-xcode11
+global_job_config:
+  prologue:
+    commands:
+      - checkout
 blocks:
   - name: A
     task:
@@ -14,4 +15,4 @@ blocks:
         - name: A
           commands:
             - docker ps -a
-          parallelism: 50
+          parallelism: 2
