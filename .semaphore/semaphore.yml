@@ -47,7 +47,7 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-  - name: F
+  - name: F2
     task:
       jobs:
         - name: A
@@ -96,7 +96,7 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
-  - name: F2
+  - name: F3
     task:
       jobs:
         - name: A
