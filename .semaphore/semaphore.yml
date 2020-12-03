@@ -12,6 +12,7 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
+    dependencies: []
   - name: B
     task:
       jobs:
@@ -19,6 +20,7 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
+    dependencies: []
   - name: C
     task:
       jobs:
@@ -26,6 +28,7 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
+    dependencies: []
   - name: D
     task:
       jobs:
@@ -33,3 +36,4 @@ blocks:
           commands:
             - docker ps -a
           parallelism: 50
+    dependencies: []
