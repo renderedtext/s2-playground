@@ -4,12 +4,8 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-  containers:
-    - name: main
-      image: 'semaphoreci/ubuntu:18.04'
 blocks:
   - name: A
-    dependencies: []
     task:
       jobs:
         - name: A
@@ -17,7 +13,6 @@ blocks:
             - docker ps -a
           parallelism: 50
   - name: B
-    dependencies: []
     task:
       jobs:
         - name: A
@@ -25,7 +20,6 @@ blocks:
             - docker ps -a
           parallelism: 50
   - name: C
-    dependencies: []
     task:
       jobs:
         - name: A
@@ -33,7 +27,6 @@ blocks:
             - docker ps -a
           parallelism: 50
   - name: D
-    dependencies: []
     task:
       jobs:
         - name: A
