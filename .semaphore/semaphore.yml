@@ -20,4 +20,5 @@ blocks:
             - go get github.com/lib/pq || err_counter=$((err_counter+1))
             - go get github.com/lib/pq || err_counter=$((err_counter+1))
             - go get github.com/lib/pq || err_counter=$((err_counter+1))
+            - echo $err_counter
           parallelism: 50
