@@ -18,11 +18,3 @@ blocks:
         - name: A
           commands:
             - echo "hello"
-          parallelism: 50
-  - name: B
-    task:
-      jobs:
-        - name: A
-          commands:
-            - echo "hello"
-          parallelism: 50
