@@ -17,4 +17,4 @@ blocks:
       jobs:
         - name: A
           commands:
-            - echo "hello"
+            - echo "helloe"
