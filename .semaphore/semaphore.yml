@@ -14,4 +14,7 @@ blocks:
       jobs:
         - name: A
           commands:
-            - echo "helloe"
+            - cd /tmp
+            - pwd
+            - cd ~
+            - pwd
