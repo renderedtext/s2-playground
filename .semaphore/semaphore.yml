@@ -14,7 +14,4 @@ blocks:
       jobs:
         - name: A
           commands:
-            - cd /tmp
-            - pwd
-            - cd ~
-            - pwd
+            - sleep 20
