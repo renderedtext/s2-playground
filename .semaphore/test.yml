@@ -28,4 +28,4 @@ blocks:
       jobs:
         - name: C
           commands:
-            - echo C
+            - echo CCCC
