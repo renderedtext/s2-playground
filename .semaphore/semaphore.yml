@@ -14,5 +14,5 @@ blocks:
       jobs:
         - name: A
           commands:
-            - sleep 20
+            - sleep 2
             - echo "here"
