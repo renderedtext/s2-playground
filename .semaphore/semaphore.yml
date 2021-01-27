@@ -10,7 +10,7 @@ agent:
 blocks:
   - name: A
     run:
-      when: "true or hahaha or change_in('/')"
+      when: "true or change_in(true)"
     dependencies: []
     task:
       jobs:
