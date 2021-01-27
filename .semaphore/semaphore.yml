@@ -9,7 +9,7 @@ agent:
 blocks:
   - name: A
     run:
-      when: "true or change_in('/', {default_branch: 'main'})"
+      when: 1
     dependencies: []
     task:
       jobs:
