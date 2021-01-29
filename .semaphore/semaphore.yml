@@ -10,6 +10,8 @@ global_job_config:
       - checkout
 blocks:
   - name: Prvi Blok
+    run:
+      when: "change_in('/folder1/')
     task:
       jobs:
         - name: A
@@ -17,7 +19,10 @@ blocks:
             - sleep 2
             - echo "here"
     dependencies: []
+    
   - name: Drugi Blok
+    run:
+      when: "change_in('/folder2/')
     task:
       jobs:
         - name: A
