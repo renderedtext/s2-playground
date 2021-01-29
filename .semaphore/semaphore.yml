@@ -8,8 +8,18 @@ global_job_config:
   prologue:
     commands:
       - checkout
+      
 blocks:
-  - name: A
+  - name: Prvi Blok
+    task:
+      jobs:
+        - name: A
+          commands:
+            - sleep 2
+            - echo "here"
+
+
+  - name: Drugi Blok
     task:
       jobs:
         - name: A
