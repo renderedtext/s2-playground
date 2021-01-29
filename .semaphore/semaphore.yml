@@ -11,7 +11,7 @@ global_job_config:
 blocks:
   - name: Prvi Blok
     run:
-      when: "change_in('/folder1/')
+      when: "change_in('/folder1/')"
     task:
       jobs:
         - name: A
@@ -22,7 +22,7 @@ blocks:
     
   - name: Drugi Blok
     run:
-      when: "change_in('/folder2/')
+      when: "change_in('/folder2/')"
     task:
       jobs:
         - name: A
