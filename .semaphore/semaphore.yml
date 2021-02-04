@@ -24,7 +24,7 @@ blocks:
     dependencies: []
   - name: "\U0001F9EA RSpec"
     run:
-      when: 'false'
+      when: 'true'
     task:
       jobs:
         - name: RSpec
