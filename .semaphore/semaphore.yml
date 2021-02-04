@@ -23,6 +23,8 @@ blocks:
           parallelism: 2
     dependencies: []
   - name: ⏰ Orders Service
+    run:
+      when: 'false'
     task:
       jobs:
         - name: Lint
@@ -36,6 +38,8 @@ blocks:
             - echo "here"
     dependencies: []
   - name: "\U0001F4B8 Billing Service"
+    run:
+      when: 'false'
     task:
       jobs:
         - name: Lint
