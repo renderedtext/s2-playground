@@ -1,5 +1,5 @@
 version: v1.0
-name: Complex pipeline without dependencies
+name: Monorepo
 agent:
   machine:
     type: e1-standard-2
@@ -9,24 +9,42 @@ global_job_config:
     commands:
       - checkout
 blocks:
-  - name: Prvi Blok
+  - name: "\U0001F468‍\U0001F3A8 User Interface"
     run:
-      when: "change_in('/folder1/', {pipeline_file: 'ignore'})"
+      when: 'change_in(''/folder1/'', {pipeline_file: ''ignore''})'
     task:
       jobs:
-        - name: A
+        - name: JS Lint
           commands:
-            - sleep 2
+            - echo "here"
+        - name: JS Tests
+          commands:
+            - echo "here"
+          parallelism: 2
+    dependencies: []
+  - name: ⏰ Orders Service
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - echo "here"
+        - name: Unit Tests
+          commands:
+            - echo "here"
+        - name: Integration Tests
+          commands:
             - echo "here"
     dependencies: []
-    
-  - name: Drugi Blok
-    run:
-      when: "change_in('/folder2/', {pipeline_file: 'ignore'})"
+  - name: "\U0001F4B8 Billing Service"
     task:
       jobs:
-        - name: A
+        - name: Lint
           commands:
-            - sleep 2
+            - echo "here"
+        - name: Unit Tests
+          commands:
+            - echo "here"
+        - name: Integration Tests
+          commands:
             - echo "here"
     dependencies: []
