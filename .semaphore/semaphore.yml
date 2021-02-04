@@ -1,5 +1,5 @@
 version: v1.0
-name: Monorepo
+name: Rails App
 agent:
   machine:
     type: e1-standard-2
@@ -22,33 +22,13 @@ blocks:
             - echo "here"
           parallelism: 2
     dependencies: []
-  - name: ⏰ Orders Service
+  - name: "\U0001F9EA RSpec"
     run:
       when: 'false'
     task:
       jobs:
-        - name: Lint
+        - name: RSpec
           commands:
             - echo "here"
-        - name: Unit Tests
-          commands:
-            - echo "here"
-        - name: Integration Tests
-          commands:
-            - echo "here"
-    dependencies: []
-  - name: "\U0001F4B8 Billing Service"
-    run:
-      when: 'false'
-    task:
-      jobs:
-        - name: Lint
-          commands:
-            - echo "here"
-        - name: Unit Tests
-          commands:
-            - echo "here"
-        - name: Integration Tests
-          commands:
-            - echo "here"
+          parallelism: 12
     dependencies: []
