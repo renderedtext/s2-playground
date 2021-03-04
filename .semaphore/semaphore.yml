@@ -1,18 +1,17 @@
 version: v1.0
 name: Complex pipeline without dependencies
+
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-global_job_config:
-  prologue:
-    commands:
-      - checkout
+
 blocks:
   - name: A
     task:
       jobs:
         - name: A
           commands:
+            - checkout
             - sleep 2
             - echo "here"
