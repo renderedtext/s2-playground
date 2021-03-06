@@ -16,3 +16,38 @@ blocks:
           commands:
             - sleep 2
             - echo "here"
+    dependencies: []
+  - name: 'Block #2'
+    dependencies:
+      - A
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #3'
+    dependencies:
+      - 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #4'
+    dependencies: []
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #5'
+    dependencies:
+      - 'Block #4'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
+  - name: 'Block #6'
+    dependencies:
+      - 'Block #5'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands: []
