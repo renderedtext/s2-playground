@@ -13,5 +13,4 @@ blocks:
         - name: A
           commands:
             - checkout
-            - sleep 2
             - echo "here"
